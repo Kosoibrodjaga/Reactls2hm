@@ -1,20 +1,27 @@
 import React from "react";
-import Card from "./Product";
-import data from "../data";
+import buttons from "./Buttons";
+import dataCards from "../datacards";
+import dataButtons from "../databuttons";
+import CardOfProduct from "./Cards";
 
 function Main() {
-    const first = data[0]
-    const second = data[1]
-    const third = data[3]
-    const fourth = data[4]
-    return (
-        <div className="card-wrapper">
-            <Card data={first} />
-            <Card data={second} />
-            <Card data={third} />
-            <Card data={fourth} />
-        </div>
-    )
+    let listOfCards = dataCards.map(card => {
+        return <CardOfProduct dataCards={card} />
+    })
+    let listOfButtons = dataButtons.map(button => {
+        return (
+        <Button button={button} />
+        )
+    })
 }
+
+return (
+    <div>
+        <h1>Тату машинки</h1>
+        <div className="buttons-list">
+            {listOfButtons}
+        </div>
+    </div>
+)
 
 export default Main;
